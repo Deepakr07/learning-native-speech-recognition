@@ -21,6 +21,10 @@ recognition.addEventListener('result',e=>{
   //console.log(e.results);
   const transcript = e.results[0][0].transcript;
   p.textContent = transcript;
+  if(e.results[0].isFinal){
+    p = document.createElement('p');
+    words.appendChild(p);
+  }
   console.log(transcript);
 })
 recognition.addEventListener('end',recognition.start);
